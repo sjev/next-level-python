@@ -1,0 +1,12 @@
+
+image: "python:slim-bullseye"
+
+
+stages:
+  - Test
+
+test:
+  stage: Test
+  script:
+    - pip install cookiecutter pytest pyyaml
+    - pytest tests

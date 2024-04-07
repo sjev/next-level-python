@@ -1,0 +1,43 @@
+{
+  "initializeCommand": "${localWorkspaceFolder}/init_host.sh", // executed on HOST system
+  "postCreateCommand": "./init_container.sh",
+  "image": "registry.gitlab.com/{{ cookiecutter.gitlab_path }}/{{ cookiecutter.project_slug }}:dev",
+  // "build": {
+  //   "dockerfile": "Dockerfile",
+  //   "args": {
+  //     "USER_UID": "${localEnv:USER_UID}",
+  //     "USER_GID": "${localEnv:USER_GID}"
+  //   }
+  // },
+
+  "mounts": [
+    "source=/var/tmp/container-extensions,target=/home/dev/.vscode-server/extensions,type=bind,consistency=cached"
+  ],
+
+
+  // Features to add to the dev container. More info: https://containers.dev/implementors/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "shardulm94.trailing-spaces",
+        "njpwerner.autodocstring",
+        "mhutchie.git-graph",
+        "doi.fileheadercomment",
+        "donjayamanne.githistory",
+        "charliermarsh.ruff"
+      ]
+    }
+  }
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}

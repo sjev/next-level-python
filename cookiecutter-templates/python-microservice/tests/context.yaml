@@ -1,0 +1,6 @@
+default_context:
+    author_name: "John Doe"
+    author_email: "john.doe@mail.com"
+    gitlab_path: "johndoe"
+    project_name: "my_microservice"
+    project_short_description: "A short description of the project"

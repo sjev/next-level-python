@@ -20,17 +20,16 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Log in to GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install wget
+      run: sudo apt-get update && sudo apt-get install -y wget
 
-    - name: Build Docker image
+    - name: Prepare and Build Docker image
       run: |
         cd docker-images/mkdocs
-        docker build . -t ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:latest
+        source config.sh
+        mkdir -p files
+        wget https://github.com/squidfunk/mkdocs-material/archive/refs/tags/$MATERIAL_VERSION.tar.gz -O files/mkdocs-material.tar.gz
+        docker build . -t ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:latest --build-arg VERSION=$MATERIAL_VERSION
 
     - name: Push Docker image to GitHub Container Registry
       run: docker push ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:latest

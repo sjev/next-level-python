@@ -1,0 +1,36 @@
+name: Build and Push MkDocs Docker Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker-images/mkdocs/**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      IMAGE_NAME: mkdocs
+      USERNAME: ${{ github.repository_owner }}
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build Docker image
+      run: |
+        cd docker-images/mkdocs
+        docker build . -t ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:latest
+
+    - name: Push Docker image to GitHub Container Registry
+      run: docker push ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:latest

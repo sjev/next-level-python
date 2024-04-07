@@ -1,0 +1,11 @@
+bump2version
+coverage
+mypy
+invoke
+ipython
+poetry
+pre-commit
+pytest
+pytest-asyncio
+pytest-coverage
+ruff

@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'docker-images/mkdocs/**'
-      - '.github/workflows/build-and-push.yml' 
+      - '.github/workflows/mkdocs-image.yml' 
 
 jobs:
   build-and-push:

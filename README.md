@@ -12,6 +12,13 @@ This repository shares beautiful, tested solutions for overcoming common challen
 - **Learn from Examples**: Understand how these solutions work in real-life scenarios.
 - **Avoid Mistakes**: Gain insights on what not to do, saving you time and hassle.
 
+## Table of contents
+
+* [configuration management](examples/configuration/README.md)
+
+
+
+
 ## How to Help
 
 Everyone is welcome to contribute to this repository:
@@ -20,7 +27,7 @@ Everyone is welcome to contribute to this repository:
 2. **Make Changes**: Enhance existing solutions or add your own.
 3. **Share Your Work**: Submit a pull request to merge your improvements. Explain what you did and why it matters.
 
-## Inside
+## What goes where
 
 - `examples/`: Code examples covering a variety of topics.
 - `docker-images/`: Pre-built Docker images for easy environment setup.

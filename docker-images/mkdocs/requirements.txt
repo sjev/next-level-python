@@ -1,0 +1,8 @@
+mkdocs
+mkdocs-glightbox
+mkdocs-jupyter
+mkdocs-macros-plugin
+mkdocs-mermaid2-plugin
+mkdocstrings
+mkdocstrings-python
+pylint

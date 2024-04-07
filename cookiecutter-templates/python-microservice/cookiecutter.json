@@ -1,9 +1,0 @@
-{
-    "author_name": "Your name",
-    "author_email": "Your email address (eq. you@example.com)",
-    "gitlab_path": "path to project, consisting of username and project name (eq. username)",
-    "project_name": "Name of the project",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
-    "package_name": "{{ cookiecutter.project_slug.replace('-', '_') }}",
-    "project_short_description": "A short description of the project"
-}
